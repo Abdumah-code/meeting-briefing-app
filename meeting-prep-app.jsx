@@ -24,7 +24,8 @@ function ChefHjalpApp() {
       antalAnstallda: '',
       omsattning: '',
       vdNamn: '',
-      vdTelefon: ''
+      vdTelefon: '',
+      vdEmail: ''
     }
   ]);
 
@@ -49,7 +50,8 @@ function ChefHjalpApp() {
       antalAnstallda: '',
       omsattning: '',
       vdNamn: '',
-      vdTelefon: ''
+      vdTelefon: '',
+      vdEmail: ''
     }]);
     setDiskussionInfo({
       forstaKontakt: '',
@@ -116,6 +118,7 @@ function ChefHjalpApp() {
       body += `Omsättning: ${k.omsattning || '_'}\n`;
       body += `VD: ${k.vdNamn}\n`;
       body += `Telefon: ${k.vdTelefon || '_'}\n\n`;
+      body += `E-post: ${k.vdEmail || '_'}\n\n`;
     } else {
       body += `🏢 KUNDER (${kunder.length} st)\n\n`;
       kunder.forEach((k, i) => {
@@ -126,6 +129,7 @@ function ChefHjalpApp() {
         body += `Omsättning: ${k.omsattning || '_'}\n`;
         body += `VD: ${k.vdNamn}\n`;
         body += `Telefon: ${k.vdTelefon || '_'}\n\n`;
+        body += `E-post: ${k.vdEmail || '_'}\n\n`;
       });
     }
 
@@ -212,7 +216,8 @@ function ChefHjalpApp() {
         antalAnstallda: '',
         omsattning: '',
         vdNamn: '',
-        vdTelefon: ''
+        vdTelefon: '',
+        vdEmail: ''
       }
     ]);
   };
@@ -643,6 +648,19 @@ function ChefHjalpApp() {
                     value={kund.vdTelefon}
                     onChange={(e) => updateKund(index, 'vdTelefon', e.target.value)}
                     placeholder="040 630 80 01"
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '14px', fontWeight: '500' }}>
+                    E-post (VD)
+                  </label>
+                  <input
+                    type="email"
+                    className="input-field"
+                    value={kund.vdEmail}
+                    onChange={(e) => updateKund(index, 'vdEmail', e.target.value)}
+                    placeholder="jonas@lassen.se"
                   />
                 </div>
               </div>
